@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "name": "37 Signals"
+  },
+  {
+    "id": 2,
+    "name": "A. A. Milne"
+  },
+  {
+    "id": 3,
+    "name": "Achaan Chah"
+  },
+  {
+    "id": 4,
+    "name": "African Story"
+  },
+  {
+    "id": 5,
+    "name": "Alan Watts"
+  },
+  {
+    "id": 6,
+    "name": "Albert Einstein"
+  },
+  {
+    "id": 7,
+    "name": "Aleksander Solzhenitsyn"
+  },
+  {
+    "id": 8,
+    "name": "Amelia Earhart"
+  },
+  {
+    "id": 9,
+    "name": "Anthony Robbins"
+  },
+  {
+    "id": 10,
+    "name": "Antoine de Saint-Exupéry"
+  },
+  {
+    "id": 11,
+    "name": "Bhante Henepola Gunaratana"
+  },
+  {
+    "id": 12,
+    "name": "Bill Bryson"
+  },
+  {
+    "id": 13,
+    "name": "Blaise Pascal"
+  },
+  {
+    "id": 14,
+    "name": "Bob Dylan"
+  },
+  {
+    "id": 15,
+    "name": "Brad Blackman"
+  },
+  {
+    "id": 16,
+    "name": "Bruce Lee"
+  },
+  {
+    "id": 17,
+    "name": "Calvin Coolidge"
+  },
+  {
+    "id": 18,
+    "name": "Carl Jung"
+  },
+  {
+    "id": 19,
+    "name": "Cesartiscar"
+  },
+  {
+    "id": 20,
+    "name": "Charles Bukowski"
+  },
+  {
+    "id": 21,
+    "name": "Charles Dickens"
+  },
+  {
+    "id": 22,
+    "name": "Chinese proverb"
+  },
+  {
+    "id": 23,
+    "name": "Dalai Lama"
+  },
+  {
+    "id": 24,
+    "name": "Dale Carnegie"
+  },
+  {
+    "id": 25,
+    "name": "David Ellis"
+  },
+  {
+    "id": 26,
+    "name": "Dogen"
+  },
+  {
+    "id": 27,
+    "name": "Dorothy Parker"
+  },
+  {
+    "id": 28,
+    "name": "Edward Abbey"
+  },
+  {
+    "id": 29,
+    "name": "Eleanor Roosevelt"
+  },
+  {
+    "id": 30,
+    "name": "Epictetus"
+  },
+  {
+    "id": 31,
+    "name": "Former Gang Member In San Quentin"
+  },
+  {
+    "id": 32,
+    "name": "Fortune Cookie"
+  },
+  {
+    "id": 33,
+    "name": "Francois de La Rochefoucauld"
+  },
+  {
+    "id": 34,
+    "name": "Gandhi"
+  },
+  {
+    "id": 35,
+    "name": "George Bernard Shaw"
+  },
+  {
+    "id": 36,
+    "name": "Gil Fronsdal"
+  },
+  {
+    "id": 37,
+    "name": "Hagakure"
+  },
+  {
+    "id": 38,
+    "name": "Haruki Murakami"
+  },
+  {
+    "id": 39,
+    "name": "Helen Keller"
+  },
+  {
+    "id": 40,
+    "name": "Henri Nouwen"
+  },
+  {
+    "id": 41,
+    "name": "Henry David Thoreau"
+  },
+  {
+    "id": 42,
+    "name": "Henry Miller"
+  },
+  {
+    "id": 43,
+    "name": "Henry Rollins"
+  },
+  {
+    "id": 44,
+    "name": "Hugh MacLeod"
+  },
+  {
+    "id": 46,
+    "name": "J. Petit-Senn"
+  },
+  {
+    "id": 47,
+    "name": "Jack Cheng"
+  },
+  {
+    "id": 48,
+    "name": "James Altucher"
+  },
+  {
+    "id": 49,
+    "name": "James Joyce"
+  },
+  {
+    "id": 50,
+    "name": "James Shelley"
+  },
+  {
+    "id": 51,
+    "name": "Jawaharlal Nehru"
+  },
+  {
+    "id": 52,
+    "name": "Jean-Paul Sartre"
+  },
+  {
+    "id": 53,
+    "name": "John Jakes"
+  },
+  {
+    "id": 54,
+    "name": "John Robb"
+  },
+  {
+    "id": 55,
+    "name": "John Steinbeck"
+  },
+  {
+    "id": 56,
+    "name": "Jose Ortega y Gasset"
+  },
+  {
+    "id": 57,
+    "name": "Katagiri Roshi"
+  },
+  {
+    "id": 58,
+    "name": "Kurt Hahn"
+  },
+  {
+    "id": 59,
+    "name": "Kurt Vonnegut"
+  },
+  {
+    "id": 60,
+    "name": "Lao Tzu"
+  },
+  {
+    "id": 61,
+    "name": "Leo Babauta"
+  },
+  {
+    "id": 63,
+    "name": "Lynda Barry"
+  },
+  {
+    "id": 64,
+    "name": "Mahatma Gandhi"
+  },
+  {
+    "id": 65,
+    "name": "Marcus Arelius"
+  },
+  {
+    "id": 66,
+    "name": "Mark Twain"
+  },
+  {
+    "id": 67,
+    "name": "May Sarton"
+  },
+  {
+    "id": 68,
+    "name": "Maya Angelou"
+  },
+  {
+    "id": 69,
+    "name": "Michael Schechter"
+  },
+  {
+    "id": 70,
+    "name": "Miyamoto Musashi"
+  },
+  {
+    "id": 71,
+    "name": "Mother Teresa"
+  },
+  {
+    "id": 72,
+    "name": "Norman Fischer"
+  },
+  {
+    "id": 73,
+    "name": "Pablo Picasso"
+  },
+  {
+    "id": 74,
+    "name": "Patrick Rhone"
+  },
+  {
+    "id": 75,
+    "name": "Paulo Coelho"
+  },
+  {
+    "id": 76,
+    "name": "Peter Bregman"
+  },
+  {
+    "id": 77,
+    "name": "Rainer Maria Rilke"
+  },
+  {
+    "id": 78,
+    "name": "Ralph Nader"
+  },
+  {
+    "id": 79,
+    "name": "Ralph Waldo Emerson"
+  },
+  {
+    "id": 80,
+    "name": "Raramuri Proverb"
+  },
+  {
+    "id": 81,
+    "name": "Richard Bode"
+  },
+  {
+    "id": 82,
+    "name": "Robert Louis Stevenson"
+  },
+  {
+    "id": 83,
+    "name": "Robert Thurman"
+  },
+  {
+    "id": 84,
+    "name": "Sakyong Mipham"
+  },
+  {
+    "id": 85,
+    "name": "Sara Lovett"
+  },
+  {
+    "id": 86,
+    "name": "Seth Godin"
+  },
+  {
+    "id": 87,
+    "name": "Sherry Turkle"
+  },
+  {
+    "id": 88,
+    "name": "Shunryu Suzuki"
+  },
+  {
+    "id": 89,
+    "name": "St. Francis of Assisi"
+  },
+  {
+    "id": 90,
+    "name": "Stephen Kellogg"
+  },
+  {
+    "id": 91,
+    "name": "Steve Jobs"
+  },
+  {
+    "id": 92,
+    "name": "The Dalai Lama"
+  },
+  {
+    "id": 93,
+    "name": "The Oatmeal"
+  },
+  {
+    "id": 94,
+    "name": "Theodore Roosevelt"
+  },
+  {
+    "id": 95,
+    "name": "Thomas Carlyle"
+  },
+  {
+    "id": 96,
+    "name": "Tina Roth Eisenberg"
+  },
+  {
+    "id": 97,
+    "name": "Viktor Frankl"
+  },
+  {
+    "id": 98,
+    "name": "William Faulkner"
+  },
+  {
+    "id": 99,
+    "name": "Winston Churchill"
+  },
+  {
+    "id": 100,
+    "name": "Yamamoto Tsunetomo"
+  },
+  {
+    "id": 101,
+    "name": "Yvon Chouinard"
+  },
+  {
+    "id": 102,
+    "name": "Zen Proverb"
+  }
+]

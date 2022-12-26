@@ -1,15 +1,11 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.up = function(knex) {
-  
-};
+exports.up = function (knex) {
+  return knex.schema.createTable('quotes', (table) => {
+    table.increments('id')
+    table.integer('author_id').references('authors.id')
+    table.text('text')
+  })
+}
 
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.down = function(knex) {
-  
-};
+exports.down = function (knex) {
+  return knex.schema.dropTable('quotes')
+}
