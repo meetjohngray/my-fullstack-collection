@@ -32,7 +32,7 @@ function getQuotesByAuthor(authId: number, db=connection): JoinedQuote[] {
     .select('authors.id as id', 'quotes.text', 'authors.name')
 }
 
-module.exports = {
+export {
   getQuotes,
   getSingleQuote,
   getQuotesByAuthor
