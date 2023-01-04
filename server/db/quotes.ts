@@ -1,23 +1,23 @@
 const connection = require('./connection')
 
-interface Quote {
+export interface Quote {
   id: number
   author_id: number
   text: string
 }
 
-interface JoinedQuote extends Quote {
+export interface JoinedQuote extends Quote {
   name: string
 }
 
-function getQuotes(db=connection): Quote[] {
+function getQuotes(db=connection) {
   return db('quotes')
     .join('authors', 'authors.id', 'author_id')
     .select('quotes.id as id', 'quotes.text', 'authors.name')
 }
 
 
-function getSingleQuote(id: number, db=connection): JoinedQuote {
+function getSingleQuote(id: number, db=connection) {
   return db('quotes')
     .join('authors', 'authors.id', 'author_id')
     .where('quotes.id', id)
@@ -25,7 +25,7 @@ function getSingleQuote(id: number, db=connection): JoinedQuote {
     .first()
 }
 
-function getQuotesByAuthor(authId: number, db=connection): JoinedQuote[] {
+function getQuotesByAuthor(authId: number, db=connection) {
   return db('quotes')
     .join('authors', 'authors.id', 'author_id')
     .where('author_id', authId)
