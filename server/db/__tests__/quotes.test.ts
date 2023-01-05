@@ -1,8 +1,7 @@
 const knex = require('knex')
 const config = require('../knexfile').test
 const testDb = knex(config)
-
-const db = require('../../db/quotes')
+import {getQuotes, getSingleQuote, getQuotesByAuthor, type JoinedQuote} from '../../db/quotes'
 const dbquote = require('../../db/data/quotes.json')
 
 beforeAll(() => {
@@ -15,8 +14,8 @@ beforeEach(() => {
 
 describe('getQuotes', () => {
   it('returns the quotes array', () => {
-    return db.getQuotes(testDb)
-      .then((quotes: Quote[]) => {
+    return getQuotes(testDb)
+      .then((quotes: JoinedQuote[]) => {
         expect(quotes).toHaveLength(dbquote.length)
         expect(quotes[0].text).toContain('Dismissing an idea')
       })
@@ -26,7 +25,7 @@ describe('getQuotes', () => {
 describe('getSingleQuote', () => {
   it('returns the correct quote', () => {
     const id = 3
-    return db.getSingleQuote(id, testDb)
+    return getSingleQuote(id, testDb)
       .then((quote: JoinedQuote)=> {
         expect(quote.text).toContain('things you make war with')
         expect(quote.name).toContain('Chah')
@@ -37,7 +36,7 @@ describe('getSingleQuote', () => {
 describe('getQuotesByAuthor', () => {
   it('returns all the quotes by a given author', () => {
     const authId = 28
-    return db.getQuotesByAuthor(authId, testDb)
+    return getQuotesByAuthor(authId, testDb)
       .then((quotes: JoinedQuote[]) => {
         expect(quotes).toHaveLength(2)
         expect(quotes[0].text).toContain('choose to listen')
