@@ -80,14 +80,14 @@ describe('get /api/v1/quotes/author:authId', () => {
       ])
     )
     return request(server)
-      .get('/api/v1/quotes/author/1')
+      .get(`/api/v1/quotes/author/${authId}`)
       .then((res) => {
         expect(res.status).toBe(200)
         expect(res.body).toHaveLength(3)
         expect(res.body[0].text).toContain('Do or do not')
       })
   })
-  
+
   it('returns 500 and logs a message when error', () => {
     mockGetQuotes.mockImplementation(() => Promise.reject('Something went wrong'))
     return request(server)
