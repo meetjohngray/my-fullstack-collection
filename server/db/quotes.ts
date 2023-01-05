@@ -13,15 +13,14 @@ export interface JoinedQuote extends Quote {
 function getQuotes(db=connection) {
   return db('quotes')
     .join('authors', 'authors.id', 'author_id')
-    .select('quotes.id as id', 'quotes.text', 'authors.name')
+    .select('quotes.id as id', 'quotes.text', 'authors.name', 'authors.id as authors_id')
 }
-
 
 function getSingleQuote(id: number, db=connection) {
   return db('quotes')
     .join('authors', 'authors.id', 'author_id')
     .where('quotes.id', id)
-    .select('quotes.id as id', 'quotes.text', 'authors.name')
+    .select('quotes.id as id', 'quotes.text', 'authors.name', 'authors.id as authors_id')
     .first()
 }
 

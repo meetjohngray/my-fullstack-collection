@@ -27,5 +27,16 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.get('/author/:authId', (req, res) => {
+  const authId = Number(req.params.authId)
+  return getQuotesByAuthor(authId)
+    .then((quotes: JoinedQuote[]) => {
+      res.json(quotes)
+    })
+    .catch((err: any) => {
+      console.error(err)
+      res.status(500).json({message: 'Something went wrong'})
+    })
+})
 
 export default router
