@@ -6,6 +6,7 @@ const router = Router()
 router.get('/', (request, response) => {
   return getQuotes()
     .then((quotes: JoinedQuote[]) => {
+      console.log(quotes)
       response.json(quotes)
     })
     .catch((err: any) => {
