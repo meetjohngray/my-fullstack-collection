@@ -1,5 +1,4 @@
 import { Router } from 'express'
-import knex from 'knex'
 import { getQuotes, getSingleQuote, getQuotesByAuthor, type JoinedQuote } from '../db/quotes'
 
 const router = Router()

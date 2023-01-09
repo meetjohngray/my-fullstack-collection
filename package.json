@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Todo Full Stack",
   "repository": "https://https://github.com/dev-academy-challenges/todo-full-stack",
-  "main": "server/index.js",
+  "main": "server/index.ts",
   "scripts": {
     "build": "run-p build:client build:server",
     "build:client": "npm run webpack -- --mode production",
