@@ -1,6 +1,6 @@
 import nock from 'nock'
 import { fetchQuotes, fetchSingleQuote, fetchQuotesByAuthor } from '../apiQuotes'
-import { JoinedQuote } from '../../../server/db/quotes'
+import { JoinedQuote } from '../../../models/Iquotes'
 
 const fakeQuotes: JoinedQuote[] = [
   {

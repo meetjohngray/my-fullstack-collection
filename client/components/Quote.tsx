@@ -1,4 +1,4 @@
-import { JoinedQuote } from "../../server/db/quotes"
+import { JoinedQuote } from "../../models/Iquotes"
 
 interface QuoteProps {
   quote: JoinedQuote

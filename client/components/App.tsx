@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchQuotes } from '../apis/apiQuotes'
-import { JoinedQuote } from '../../server/db/quotes'
+import { JoinedQuote } from '../../models/Iquotes'
 
 import Quote from './Quote'
 

@@ -1,15 +1,5 @@
 const connection = require('./connection')
 
-export interface Quote {
-  id: number
-  author_id: number
-  text: string
-}
-
-export interface JoinedQuote extends Quote {
-  name: string
-}
-
 function getQuotes(db=connection) {
   return db('quotes')
     .join('authors', 'authors.id', 'author_id')
