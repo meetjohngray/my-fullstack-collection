@@ -1,20 +1,18 @@
-import { useState, useEffect } from 'react'
-import { fetchQuotes } from '../apis/apiQuotes'
+import { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../hooks'
+import { fetchQuotes } from '../actions/index'
 import { JoinedQuote } from '../../models/Iquotes'
 
 import Quote from './Quote'
 
 function App() {
   
-  const [quotes, setQuotes] = useState<JoinedQuote[]>([])
+  const quotes = useAppSelector(reduxState => reduxState.quotes)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    fetchQuotes()
-      .then( res=> {
-        setQuotes(res)
-      })
-      .catch(err => console.log(err))
-  },[])
+    dispatch(fetchQuotes())
+  }, [])
   
   return (
     <>
@@ -22,7 +20,7 @@ function App() {
         <h1>My Collection</h1>
       </header>
       <section className="main">
-        {quotes.map(item => (
+        {quotes.map((item: JoinedQuote) => (
           <Quote key = {item.id} quote = {item} />
         ))}
       </section>

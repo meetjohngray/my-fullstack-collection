@@ -1,6 +1,6 @@
 import request from "superagent";
 
-function fetchQuotes(){
+function apiFetchQuotes(){
   return request
     .get('/api/v1/quotes')
     .then(res => res.body)
@@ -18,4 +18,4 @@ function fetchQuotesByAuthor(authId: number){
     .then(res => res.body)
 }
 
-export { fetchQuotes, fetchSingleQuote, fetchQuotesByAuthor }
+export { apiFetchQuotes, fetchSingleQuote, fetchQuotesByAuthor }

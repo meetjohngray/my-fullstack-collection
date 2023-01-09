@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { fetchQuotes, fetchSingleQuote, fetchQuotesByAuthor } from '../apiQuotes'
+import { apiFetchQuotes, fetchSingleQuote, fetchQuotesByAuthor } from '../apiQuotes'
 import { JoinedQuote } from '../../../models/Iquotes'
 
 const fakeQuotes: JoinedQuote[] = [
@@ -29,7 +29,7 @@ describe('fetchQuotes', () => {
     .reply(200, fakeQuotes)
 
   it('returns an array of quotes', () => {
-    return fetchQuotes()
+    return apiFetchQuotes()
       .then((quotes) => {
         expect(quotes).toEqual(fakeQuotes)
         expect(quotes[2].text).toContain('dance')
