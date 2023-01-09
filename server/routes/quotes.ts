@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import knex from 'knex'
 import { getQuotes, getSingleQuote, getQuotesByAuthor, type JoinedQuote } from '../db/quotes'
 
 const router = Router()
@@ -8,7 +9,7 @@ router.get('/', (req, res) => {
     .then((quotes: JoinedQuote[]) => {
       res.json(quotes)
     })
-    .catch((err: any) => {
+    .catch((err: unknown) => {
       console.error(err)
       res.status(500).json({message: 'Something went wrong'})
     })  
@@ -21,7 +22,7 @@ router.get('/:id', (req, res) => {
     .then((quote: JoinedQuote) => {
       res.json(quote)
     })
-    .catch((err: any) => {
+    .catch((err: unknown) => {
       console.error(err)
       res.status(500).json({message: 'Something went wrong'})
     })
@@ -29,14 +30,15 @@ router.get('/:id', (req, res) => {
 
 router.get('/author/:authId', (req, res) => {
   const authId = Number(req.params.authId)
-  return getQuotesByAuthor(authId)
-    .then((quotes: JoinedQuote[]) => {
-      res.json(quotes)
-    })
-    .catch((err: any) => {
+    return getQuotesByAuthor(authId)
+      .then((quotes: JoinedQuote[]) => {
+        res.json(quotes)
+      })
+      .catch((err: unknown) => {
+      if (err instanceof Error)
       console.error(err)
       res.status(500).json({message: 'Something went wrong'})
-    })
+      })
 })
 
 export default router
