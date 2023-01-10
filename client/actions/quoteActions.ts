@@ -26,4 +26,4 @@ export function fetchQuotes(): ThunkAction {
 }
 
 export type TQuoteAction = 
-  | { type: string, payload: JoinedQuote[]}
+  | { type: typeof SET_QUOTES | string, payload: JoinedQuote[]}
