@@ -5,7 +5,6 @@ import { fetchQuotes } from '../actions/quoteActions'
 import Quotes from './Quotes'
 
 function App() {
-  
   const dispatch = useAppDispatch()
 
   useEffect(() => {
