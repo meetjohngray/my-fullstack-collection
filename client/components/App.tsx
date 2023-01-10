@@ -10,8 +10,8 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchQuotes())
-  }, [])
-  
+  }, [dispatch])
+
   return (
     <>
       <header className="header">
