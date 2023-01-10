@@ -1,5 +1,4 @@
 import { JoinedQuote } from "../../models/Iquotes"
-
 interface QuoteProps {
   quote: JoinedQuote
 }
