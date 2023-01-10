@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks'
-import { fetchQuotes } from '../actions/index'
+import { fetchQuotes } from '../actions/quoteActions'
 import { JoinedQuote } from '../../models/Iquotes'
 
 import Quote from './Quote'
