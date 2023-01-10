@@ -1,7 +1,8 @@
 const knex = require('knex')
 const config = require('../knexfile').test
 const testDb = knex(config)
-import {getQuotes, getSingleQuote, getQuotesByAuthor, type JoinedQuote} from '../../db/quotes'
+import {getQuotes, getSingleQuote, getQuotesByAuthor } from '../../db/quotes'
+import { JoinedQuote } from '../../../models/Iquotes'
 const dbquote = require('../../db/data/quotes.json')
 
 beforeAll(() => {

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-// import stuff from './stuff'
+import quotes from './quotes'
 
 export default combineReducers({
-  // stuff
+  quotes
 })

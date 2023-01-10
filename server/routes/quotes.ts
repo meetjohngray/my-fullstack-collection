@@ -1,5 +1,6 @@
 import { Router } from 'express'
-import { getQuotes, getSingleQuote, getQuotesByAuthor, type JoinedQuote } from '../db/quotes'
+import { getQuotes, getSingleQuote, getQuotesByAuthor } from '../db/quotes'
+import { JoinedQuote } from '../../models/Iquotes'
 
 const router = Router()
 
