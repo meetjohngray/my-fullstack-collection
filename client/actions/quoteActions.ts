@@ -1,12 +1,10 @@
 import { apiFetchQuotes } from '../apis/apiQuotes'
 import { JoinedQuote } from '../../models/Iquotes'
-// Why isn't this working correctly?
-import { useAppDispatch } from '../hooks'
 import type { ThunkAction } from '../store'
 
 export const SET_QUOTES = 'SET_QUOTES'
 
-export function setQuotes(quotes: JoinedQuote[]) {
+export function setQuotes(quotes: JoinedQuote[]): QuoteAction {
   return {
     type: SET_QUOTES,
     payload: quotes
@@ -14,10 +12,10 @@ export function setQuotes(quotes: JoinedQuote[]) {
 }
 
 export function fetchQuotes(): ThunkAction {
-  return (useAppDispatch) => {
+  return (dispatch) => {
     return apiFetchQuotes()
       .then(quotes => {
-        useAppDispatch(setQuotes(quotes))
+        dispatch(setQuotes(quotes))
       })
       .catch((err: unknown) => {
         console.error(err)
@@ -25,5 +23,5 @@ export function fetchQuotes(): ThunkAction {
   }
 }
 
-export type TQuoteAction = 
-  | { type: typeof SET_QUOTES | string, payload: JoinedQuote[]}
+export type QuoteAction = 
+  | { type: typeof SET_QUOTES, payload: JoinedQuote[]}
