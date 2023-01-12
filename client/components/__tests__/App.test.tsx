@@ -7,7 +7,6 @@ import store from'../../store'
 
 import App from '../App'
 
-
 describe('App', () => {
   it('displays the header', ()=> {
      render(
@@ -18,6 +17,6 @@ describe('App', () => {
   
     const header = screen.getByRole('heading')
     expect(header).toBeInTheDocument()
-    expect(header).toHaveTextContent(/quote this/i)
+    expect(header).toHaveTextContent( /quote this/i )
   })
 })
