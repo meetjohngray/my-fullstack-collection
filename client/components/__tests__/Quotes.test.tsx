@@ -40,7 +40,7 @@ describe('<Quotes />', () => {
         <Quotes />  
       </Provider>
     )
-    screen.debug()
+    
     const elements = await screen.findByText(/he said/i)
     expect(elements).toBeVisible()
   })
