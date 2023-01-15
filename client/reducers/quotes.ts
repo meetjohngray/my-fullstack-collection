@@ -3,7 +3,7 @@ import { JoinedQuote } from '../../models/Iquotes'
 
 export interface InitialState {
   quotes: JoinedQuote[],
-  filteredQuotes: JoinedQuote | null
+  filteredQuotes: JoinedQuote | JoinedQuote[] | null
 }
 const initialState: InitialState = {
   quotes: [],
@@ -22,10 +22,6 @@ const reducer = (state = initialState, action: QuoteAction) => {
         return quote.author_id === payload ? state.filteredQuotes = quote : null
       })
     }
-      // const filterByAuthor = (quotes, authorId: number) => {
-      //   const authorQuotes = quotes.filter(quote => quote.author_id === authorId)
-      //   setFilteredQuotes(authorQuotes)
-      // }
     default:
       return state
   }
