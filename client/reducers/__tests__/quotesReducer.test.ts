@@ -4,7 +4,7 @@ import { JoinedQuote } from '../../../models/Iquotes'
 
 const initialState: InitialState = {
   quotes: [],
-  filteredQuotes: null,
+  filteredQuotes: [],
 }
 
 const quoteData: JoinedQuote[] = [

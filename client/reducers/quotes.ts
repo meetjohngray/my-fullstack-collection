@@ -3,11 +3,12 @@ import { JoinedQuote } from '../../models/Iquotes'
 
 export interface InitialState {
   quotes: JoinedQuote[],
-  filteredQuotes: JoinedQuote | JoinedQuote[] | null
+  // This seems wrong, but without JoinedQuote as an option, TS is not happy on line 23
+  filteredQuotes: JoinedQuote | JoinedQuote[] | []
 }
 const initialState: InitialState = {
   quotes: [],
-  filteredQuotes: null
+  filteredQuotes: []
 }  
 
 const reducer = (state = initialState, action: QuoteAction) => {
