@@ -32,4 +32,4 @@ export function fetchQuotes(): ThunkAction {
 
 export type QuoteAction = 
   | { type: typeof SET_QUOTES, payload: JoinedQuote[]}
-  | { type: typeof FILTER_QUOTES, payload: number}
+  | { type: typeof FILTER_QUOTES, payload: number | string}
