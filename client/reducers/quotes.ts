@@ -1,12 +1,12 @@
 import { SET_QUOTES, FILTER_QUOTES, QuoteAction } from '../actions/quoteActions'
 import { JoinedQuote } from '../../models/Iquotes'
 
-export interface InitialState {
+export interface QuoteState {
   quotes: JoinedQuote[],
   // This seems wrong, but without JoinedQuote as an option, TS is not happy on line 23
   filteredQuotes: JoinedQuote | JoinedQuote[] | []
 }
-const initialState: InitialState = {
+const initialState: QuoteState = {
   quotes: [],
   filteredQuotes: []
 }  

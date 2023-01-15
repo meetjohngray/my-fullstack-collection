@@ -5,7 +5,7 @@ import Quote from './Quote'
 
 function Quotes() {
 
-  const quotes = useAppSelector(reduxState => reduxState.quotes.quotes)
+  const quotes = useAppSelector(reduxState => reduxState.quoteData.quotes)
   const [current, setCurrent] = useState(0)
 
   const nextQuote = (e: React.MouseEvent<HTMLButtonElement>) => {

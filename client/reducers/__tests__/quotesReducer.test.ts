@@ -1,11 +1,6 @@
-import quoteReducer, { InitialState } from '../quotes'
+import quoteReducer, { QuoteState } from '../quotes'
 import { setQuotes, filterQuotes, QuoteAction } from '../../actions/quoteActions'
 import { JoinedQuote } from '../../../models/Iquotes'
-
-const initialState: InitialState = {
-  quotes: [],
-  filteredQuotes: [],
-}
 
 const quoteData: JoinedQuote[] = [
   {
@@ -28,7 +23,12 @@ const quoteData: JoinedQuote[] = [
   },
 ]
 
-const unfilteredState: InitialState = {
+const initialState: QuoteState = {
+  quotes: [],
+  filteredQuotes: [],
+}
+
+const unfilteredState: QuoteState = {
   quotes: quoteData,
   filteredQuotes: [
     {
@@ -38,6 +38,12 @@ const unfilteredState: InitialState = {
       author_id: 7,
     },
     {
+      id: 5,
+      text: 'Here we go.',
+      name: 'White Snake',
+      author_id: 8,
+    },
+    {
       id: 6,
       text: "Let's dance.",
       name: 'Kevin Bacon',
@@ -45,7 +51,8 @@ const unfilteredState: InitialState = {
     },
   ]
 }
-const filteredState: InitialState = {
+
+const filteredState: QuoteState = {
   quotes: quoteData,
   filteredQuotes: [
     {
