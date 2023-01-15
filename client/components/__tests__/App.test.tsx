@@ -41,7 +41,7 @@ describe('App', () => {
         <App />
       </Provider>  
       )
-    screen.debug()
+    
     const header = screen.getByRole('heading')
     await waitFor(() => {
       expect(header).toBeInTheDocument()

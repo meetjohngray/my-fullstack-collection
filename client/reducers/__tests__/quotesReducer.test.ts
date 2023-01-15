@@ -1,8 +1,12 @@
-import quoteReducer from '../quotes'
+import quoteReducer, { InitialState } from '../quotes'
 import { setQuotes, QuoteAction } from '../../actions/quoteActions'
 import { JoinedQuote } from '../../../models/Iquotes'
 
-const initialState: JoinedQuote[] = []
+const initialState: InitialState = {
+  quotes: [],
+  filteredQuote: null,
+}
+
 const quotes: JoinedQuote[] = [
   {
     id: 4,
@@ -28,6 +32,6 @@ describe('quoteReducer', () => {
   it('SET_QUOTES returns new state', () => {
     const action: QuoteAction = setQuotes(quotes)
     const newState = quoteReducer(initialState, action)
-    expect(newState).toEqual(quotes)
+    expect(newState.quotes).toEqual(quotes)
   })
 })
