@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useAppSelector, useAppDispatch } from '../hooks'
 
 import { filterQuotes } from '../actions/quoteActions'
@@ -38,15 +38,18 @@ function Quotes() {
       )
     ))}
     { mappedQuotes.length > 1 && (
-    <>
-    <button onClick = {previousQuote}>
-      ⬅
-    </button>
-    <button onClick={nextQuote}>
-      ⮕
-    </button>
-    </>
+    <div className='quoteNav'>
+      <button onClick = {previousQuote}>
+        ⬅
+      </button>
+      <button onClick={nextQuote}>
+        ⮕
+      </button>
+    </div>
     )}
+    <div>
+      { <Link to = '/'>Home</Link>}    
+    </div>
   </section>
   )
 }
