@@ -1,15 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { Provider, useSelector } from 'react-redux'
+import { Provider } from 'react-redux'
+import { MemoryRouter as Router } from 'react-router-dom'
 import { JoinedQuote } from '../../../models/Iquotes'
 import store from'../../store'
-import { useAppSelector } from '../../hooks'
+import { useAppSelector, useAppDispatch } from '../../hooks'
 
 import Quotes from '../Quotes'
 
 jest.mock('../../hooks')
 
 const mockedUseAppSelector = jest.mocked(useAppSelector)
+const mockedUseAppDispatch = jest.mocked(useAppDispatch)
 
  const mockQuotes: JoinedQuote[] = [
   {
@@ -33,15 +35,23 @@ const mockedUseAppSelector = jest.mocked(useAppSelector)
 ]
 describe('<Quotes />', () => {
   it('renders the mocked data', async () => {
-
+    const mockDispatch = jest.fn()
     mockedUseAppSelector.mockReturnValue(mockQuotes)
+    // These both work...
+    // mockedUseAppDispatch.mockReturnValue(mockDispatch)
+    mockedUseAppDispatch.mockReturnValue(() => mockDispatch)
+    
     render(
       <Provider store={store}>
-        <Quotes />  
+        <Router>
+          <Quotes />
+        </Router>  
       </Provider>
     )
     
     const elements = await screen.findByText(/he said/i)
     expect(elements).toBeVisible()
   })
+  
+  it.todo('renders the mocked data with a filter')
 })

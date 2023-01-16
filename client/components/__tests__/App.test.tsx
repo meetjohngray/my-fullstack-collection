@@ -3,6 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 // Might require a jest set-up file
 import '@testing-library/jest-dom'
 import { Provider } from 'react-redux'
+import { MemoryRouter as Router } from 'react-router-dom'
 import { JoinedQuote } from '../../../models/Iquotes'
 import { apiFetchQuotes } from '../../apis/apiQuotes'
 import store from'../../store'
@@ -38,7 +39,9 @@ describe('App', () => {
     mockedApiFetchQuotes.mockResolvedValue(Promise.resolve(quotes))
     render(
       <Provider store={store}>
-        <App />
+        <Router>
+          <App />
+        </Router>  
       </Provider>  
       )
     
