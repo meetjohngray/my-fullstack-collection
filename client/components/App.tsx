@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { useAppDispatch } from '../hooks'
+import { Routes, Route } from 'react-router-dom'
+
 import { fetchQuotes } from '../actions/quoteActions'
+
 
 import Quotes from './Quotes'
 
@@ -16,7 +19,11 @@ function App() {
       <header className="header">
         <h1>Quote This</h1>
       </header>
-      <Quotes />
+      <Routes>
+        <Route path='/' element={<Quotes />} />
+        <Route path='/author/:authId' element={<Quotes />} />
+        <Route path='*' element={<h1>404 Not Found</h1>} />
+      </Routes>
     </>
  )
 }
