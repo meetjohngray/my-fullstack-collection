@@ -6,6 +6,7 @@ import { filterQuotes } from '../actions/quoteActions'
 import Quote from './Quote'
 
 function Quotes() {
+  const [current, setCurrent] = useState(0)
   const dispatch = useAppDispatch()
   const { authId } = useParams()
 
@@ -17,10 +18,7 @@ function Quotes() {
   const quotes = useAppSelector(reduxState => reduxState.quoteData.quotes)
   const filteredQuotes = useAppSelector(reduxState => reduxState.quoteData.filteredQuotes)
   const mappedQuotes = filteredQuotes.length > 0 ? filteredQuotes : quotes
-  console.log(mappedQuotes)
 
-
-  const [current, setCurrent] = useState(0)
 
   const nextQuote = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
@@ -39,12 +37,16 @@ function Quotes() {
         <Quote key = {item.id} quote = {item} />
       )
     ))}
+    { mappedQuotes.length > 1 && (
+    <>
     <button onClick = {previousQuote}>
       ⬅
     </button>
     <button onClick={nextQuote}>
       ⮕
     </button>
+    </>
+    )}
   </section>
   )
 }
