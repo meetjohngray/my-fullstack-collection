@@ -1,4 +1,4 @@
-const connection = require('./connection')
+import connection from './connection'
 
 function getQuotes(db = connection) {
   return db('quotes')
