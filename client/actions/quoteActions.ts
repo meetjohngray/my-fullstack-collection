@@ -3,6 +3,7 @@ import { JoinedQuote } from '../../models/Iquotes'
 import type { ThunkAction } from '../store'
 
 export const SET_QUOTES = 'SET_QUOTES'
+export const FILTER_QUOTES = 'FILTER_QUOTES'
 
 export function setQuotes(quotes: JoinedQuote[]): QuoteAction {
   return {
@@ -11,6 +12,12 @@ export function setQuotes(quotes: JoinedQuote[]): QuoteAction {
   }
 }
 
+export function filterQuotes(authorId: number): QuoteAction {
+  return {
+    type: FILTER_QUOTES,
+    payload: authorId
+  }
+}
 export function fetchQuotes(): ThunkAction {
   return (dispatch) => {
     return apiFetchQuotes()
@@ -25,3 +32,4 @@ export function fetchQuotes(): ThunkAction {
 
 export type QuoteAction = 
   | { type: typeof SET_QUOTES, payload: JoinedQuote[]}
+  | { type: typeof FILTER_QUOTES, payload: number | string}

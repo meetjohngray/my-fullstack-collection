@@ -25,11 +25,11 @@ describe('get /api/v1/quotes', () => {
   it('returns an array of quotes', () => {
     mockGetQuotes.mockReturnValue(
       Promise.resolve([
-        { id: 1, text: 'Do or do not', name: 'Yoda', authors_id: 1 },
-        { id: 2, text: 'I am your father', name: 'Darth Vader', authors_id: 2 },
-        { id: 3, text: "We're doomed", name: 'C-3PO', authors_id: 3 },
+        { id: 1, text: 'Do or do not', name: 'Yoda', author_id: 1 },
+        { id: 2, text: 'I am your father', name: 'Darth Vader', author_id: 2 },
+        { id: 3, text: "We're doomed", name: 'C-3PO', author_id: 3 },
       ]) as Knex.QueryBuilder
-    )
+    ) 
     return request(server)
       .get('/api/v1/quotes')
       .then((res) => {
@@ -58,7 +58,7 @@ describe('get /api/vi/quotes/:id', () => {
         id: 2,
         text: 'Judge me by my size, do you?',
         name: 'Yoda',
-        authors_id: 1,
+        author_id: 1,
       }) as Knex.QueryBuilder
     )
     return request(server)
@@ -86,18 +86,18 @@ describe('get /api/v1/quotes/author:authId', () => {
     const authId = 1
     mockGetQuotesByAuthor.mockReturnValue(
       Promise.resolve([
-        { id: 1, text: 'Do or do not', name: 'Yoda', authors_id: 1 },
+        { id: 1, text: 'Do or do not', name: 'Yoda', author_id: 1 },
         {
           id: 2,
           text: 'Judge me by my size, do you?',
           name: 'Yoda',
-          authors_id: 1,
+          author_id: 1,
         },
         {
           id: 3,
           text: 'Go into the cave, you must',
           name: 'Yoda',
-          authors_id: 1,
+          author_id: 1,
         },
       ]) as Knex.QueryBuilder
     )

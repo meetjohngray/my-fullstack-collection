@@ -7,7 +7,7 @@ function getQuotes(db = connection) {
       'quotes.id as id',
       'quotes.text',
       'authors.name',
-      'authors.id as authors_id'
+      'authors.id as author_id'
     )
 }
 
@@ -19,7 +19,7 @@ function getSingleQuote(id: number, db = connection) {
       'quotes.id as id',
       'quotes.text',
       'authors.name',
-      'authors.id as authors_id'
+      'authors.id as author_id'
     )
     .first()
 }
