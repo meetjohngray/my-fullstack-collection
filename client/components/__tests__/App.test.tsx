@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 import { Provider } from 'react-redux'
 import { JoinedQuote } from '../../../models/Iquotes'
 import { apiFetchQuotes } from '../../apis/apiQuotes'
-import store from'../../store'
+import store from '../../store'
 
 import App from '../App'
 
@@ -34,18 +34,17 @@ const quotes: JoinedQuote[] = [
   },
 ]
 describe('App', () => {
-  it('displays the header', async ()=> {
+  it('displays the header', async () => {
     mockedApiFetchQuotes.mockResolvedValue(Promise.resolve(quotes))
     render(
       <Provider store={store}>
         <App />
-      </Provider>  
-      )
-    screen.debug()
+      </Provider>
+    )
     const header = screen.getByRole('heading')
     await waitFor(() => {
       expect(header).toBeInTheDocument()
-      expect(header).toHaveTextContent( /quote this/i )
+      expect(header).toHaveTextContent(/quote this/i)
     })
   })
 })
