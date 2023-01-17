@@ -1,6 +1,7 @@
 import request from 'supertest'
 import server from '../../server'
 import { getQuotes, getSingleQuote, getQuotesByAuthor } from '../../db/quotes'
+import { Knex } from 'knex'
 
 jest.mock('../../db/quotes')
 
@@ -27,8 +28,8 @@ describe('get /api/v1/quotes', () => {
         { id: 1, text: 'Do or do not', name: 'Yoda', author_id: 1 },
         { id: 2, text: 'I am your father', name: 'Darth Vader', author_id: 2 },
         { id: 3, text: "We're doomed", name: 'C-3PO', author_id: 3 },
-      ])
-    )
+      ]) as Knex.QueryBuilder
+    ) 
     return request(server)
       .get('/api/v1/quotes')
       .then((res) => {
@@ -37,8 +38,8 @@ describe('get /api/v1/quotes', () => {
   })
 
   it('returns 500 and logs a message when error', () => {
-    mockGetQuotes.mockImplementation(() =>
-      Promise.reject('Something went wrong')
+    mockGetQuotes.mockImplementation(
+      () => Promise.reject('Something went wrong') as Knex.QueryBuilder
     )
     return request(server)
       .get('/api/v1/quotes')
@@ -58,7 +59,7 @@ describe('get /api/vi/quotes/:id', () => {
         text: 'Judge me by my size, do you?',
         name: 'Yoda',
         author_id: 1,
-      })
+      }) as Knex.QueryBuilder
     )
     return request(server)
       .get(`/api/v1/quotes/${id}`)
@@ -68,8 +69,8 @@ describe('get /api/vi/quotes/:id', () => {
   })
 
   it('returns 500 and logs a message when error', () => {
-    mockGetQuotes.mockImplementation(() =>
-      Promise.reject('Something went wrong')
+    mockGetQuotes.mockImplementation(
+      () => Promise.reject('Something went wrong') as Knex.QueryBuilder
     )
     return request(server)
       .get('/api/v1/quotes')
@@ -98,7 +99,7 @@ describe('get /api/v1/quotes/author:authId', () => {
           name: 'Yoda',
           author_id: 1,
         },
-      ])
+      ]) as Knex.QueryBuilder
     )
     return request(server)
       .get(`/api/v1/quotes/author/${authId}`)
@@ -110,8 +111,8 @@ describe('get /api/v1/quotes/author:authId', () => {
   })
 
   it('returns 500 and logs a message when error', () => {
-    mockGetQuotes.mockImplementation(() =>
-      Promise.reject('Something went wrong')
+    mockGetQuotes.mockImplementation(
+      () => Promise.reject('Something went wrong') as Knex.QueryBuilder
     )
     return request(server)
       .get('/api/v1/quotes')

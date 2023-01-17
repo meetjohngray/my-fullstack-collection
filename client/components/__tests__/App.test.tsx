@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { MemoryRouter as Router } from 'react-router-dom'
 import { JoinedQuote } from '../../../models/Iquotes'
 import { apiFetchQuotes } from '../../apis/apiQuotes'
-import store from'../../store'
+import store from '../../store'
 
 import App from '../App'
 
@@ -35,7 +35,7 @@ const quotes: JoinedQuote[] = [
   },
 ]
 describe('App', () => {
-  it('displays the header', async ()=> {
+  it('displays the header', async () => {
     mockedApiFetchQuotes.mockResolvedValue(Promise.resolve(quotes))
     render(
       <Provider store={store}>
@@ -48,7 +48,7 @@ describe('App', () => {
     const header = screen.getByRole('heading')
     await waitFor(() => {
       expect(header).toBeInTheDocument()
-      expect(header).toHaveTextContent( /quote this/i )
+      expect(header).toHaveTextContent(/quote this/i)
     })
   })
 })
