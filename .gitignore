@@ -15,7 +15,9 @@ server/public/bundle.js.map
 server/public/styles.css
 server/public/styles.css.map
 
-# Jest coverage report
+# Ignore test-related files
+/coverage.data
+/coverage/
 coverage/*
 
 # Dotenv env settings
