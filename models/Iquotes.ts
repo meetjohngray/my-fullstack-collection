@@ -7,3 +7,8 @@ export interface Quote {
 export interface JoinedQuote extends Quote {
   name: string
 }
+
+export interface QuoteFormData { 
+  text: string,
+  author: string
+}

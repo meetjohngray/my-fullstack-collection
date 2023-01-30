@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 
 import { fetchQuotes } from '../actions/quoteActions'
 
-
 import Quotes from './Quotes'
+import AddQuote from './AddQuote'
 
 function App() {
   const dispatch = useAppDispatch()
@@ -22,6 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Quotes />} />
         <Route path='/author/:authId' element={<Quotes />} />
+        <Route path='/form' element={<AddQuote />} />
         <Route path='*' element={<h1>404 Not Found</h1>} />
       </Routes>
     </>

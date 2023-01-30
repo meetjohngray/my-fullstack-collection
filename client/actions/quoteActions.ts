@@ -1,5 +1,5 @@
-import { apiFetchQuotes } from '../apis/apiQuotes'
-import { JoinedQuote } from '../../models/Iquotes'
+import { apiFetchQuotes, apiAddQuote } from '../apis/apiQuotes'
+import { JoinedQuote, QuoteFormData } from '../../models/Iquotes'
 import type { ThunkAction } from '../store'
 
 export const SET_QUOTES = 'SET_QUOTES'
@@ -23,6 +23,18 @@ export function fetchQuotes(): ThunkAction {
     return apiFetchQuotes()
       .then(quotes => {
         dispatch(setQuotes(quotes))
+      })
+      .catch((err: unknown) => {
+        console.error(err)
+      })
+  }
+}
+
+export function addQuote(quote: QuoteFormData): ThunkAction {
+  return (dispatch) => {
+    return apiAddQuote(quote)
+      .then(quote => {
+        dispatch(fetchQuotes())
       })
       .catch((err: unknown) => {
         console.error(err)

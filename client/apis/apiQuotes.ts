@@ -1,4 +1,5 @@
 import request from "superagent";
+import { QuoteFormData } from "../../models/Iquotes";
 
 function apiFetchQuotes(){
   return request
@@ -18,4 +19,12 @@ function fetchQuotesByAuthor(authId: number){
     .then(res => res.body)
 }
 
-export { apiFetchQuotes, fetchSingleQuote, fetchQuotesByAuthor }
+function apiAddQuote(quote: QuoteFormData){
+  console.log('api quote', quote)
+  return request
+    .post('/api/v1/addQuote')
+    .send(quote)
+    .then(res => res.body)
+}
+
+export { apiFetchQuotes, fetchSingleQuote, fetchQuotesByAuthor, apiAddQuote }
