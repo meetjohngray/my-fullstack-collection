@@ -20,7 +20,6 @@ function AddQuote() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(text, author)
     dispatch(addQuote(formData))
     setFormData(initialState)
   }

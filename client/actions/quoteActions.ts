@@ -4,6 +4,7 @@ import type { ThunkAction } from '../store'
 
 export const SET_QUOTES = 'SET_QUOTES'
 export const FILTER_QUOTES = 'FILTER_QUOTES'
+// export const ADD_QUOTE = 'ADD_QUOTE'
 
 export function setQuotes(quotes: JoinedQuote[]): QuoteAction {
   return {
@@ -45,3 +46,4 @@ export function addQuote(quote: QuoteFormData): ThunkAction {
 export type QuoteAction = 
   | { type: typeof SET_QUOTES, payload: JoinedQuote[]}
   | { type: typeof FILTER_QUOTES, payload: number | string}
+  // | { type: typeof ADD_QUOTE, payload: QuoteFormData}

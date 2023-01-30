@@ -20,9 +20,8 @@ function fetchQuotesByAuthor(authId: number){
 }
 
 function apiAddQuote(quote: QuoteFormData){
-  console.log('api quote', quote)
   return request
-    .post('/api/v1/addQuote')
+    .post('/api/v1/quotes/addQuote')
     .send(quote)
     .then(res => res.body)
 }

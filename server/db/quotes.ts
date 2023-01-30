@@ -1,4 +1,5 @@
 import connection from './connection'
+import { QuoteFormData } from '../../models/Iquotes'
 
 function getQuotes(db = connection) {
   return db('quotes')
@@ -31,4 +32,29 @@ function getQuotesByAuthor(authId: number, db = connection) {
     .select('authors.id as id', 'quotes.text', 'authors.name')
 }
 
-export { getQuotes, getSingleQuote, getQuotesByAuthor }
+function getAuthor(id: number, db = connection) {
+  return db('authors').where('id', id).first()
+}
+
+function addQuote(quote: QuoteFormData, db = connection) {
+  return db('authors')
+    .where('name', quote.author)
+    .first()
+    .then((author) => {
+      if (author) {
+        return author
+      } else {
+        return db('authors')
+          .insert({ name: quote.author })
+          .then(([id]) => {
+            getAuthor(id)
+          })
+      }
+    })
+    .then((author) => {
+      return db('quotes')
+        .insert({ text: quote.text, author_id: author.id })
+        .then(([id]) => getSingleQuote(id))
+    })
+}
+export { getQuotes, getSingleQuote, getQuotesByAuthor, addQuote }
