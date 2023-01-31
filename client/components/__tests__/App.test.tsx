@@ -41,10 +41,10 @@ describe('App', () => {
       <Provider store={store}>
         <Router>
           <App />
-        </Router>  
-      </Provider>  
-      )
-    
+        </Router>
+      </Provider>
+    )
+
     const header = screen.getByRole('heading')
     await waitFor(() => {
       expect(header).toBeInTheDocument()

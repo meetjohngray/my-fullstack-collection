@@ -29,7 +29,7 @@ describe('get /api/v1/quotes', () => {
         { id: 2, text: 'I am your father', name: 'Darth Vader', author_id: 2 },
         { id: 3, text: "We're doomed", name: 'C-3PO', author_id: 3 },
       ]) as Knex.QueryBuilder
-    ) 
+    )
     return request(server)
       .get('/api/v1/quotes')
       .then((res) => {

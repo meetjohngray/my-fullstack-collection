@@ -20,13 +20,13 @@ function App() {
         <h1>Quote This</h1>
       </header>
       <Routes>
-        <Route path='/' element={<Quotes />} />
-        <Route path='/author/:authId' element={<Quotes />} />
-        <Route path='/form' element={<AddQuote />} />
-        <Route path='*' element={<h1>404 Not Found</h1>} />
+        <Route path="/" element={<Quotes />} />
+        <Route path="/author/:authId" element={<Quotes />} />
+        <Route path="/form" element={<AddQuote />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </>
- )
+  )
 }
 
 export default App

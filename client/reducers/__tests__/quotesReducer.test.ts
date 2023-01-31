@@ -1,5 +1,9 @@
 import quoteReducer, { QuoteState } from '../quotes'
-import { setQuotes, filterQuotes, QuoteAction } from '../../actions/quoteActions'
+import {
+  setQuotes,
+  filterQuotes,
+  QuoteAction,
+} from '../../actions/quoteActions'
 import { JoinedQuote } from '../../../models/Iquotes'
 
 const quoteData: JoinedQuote[] = [
@@ -49,7 +53,7 @@ const unfilteredState: QuoteState = {
       name: 'Kevin Bacon',
       author_id: 7,
     },
-  ]
+  ],
 }
 
 const filteredState: QuoteState = {
@@ -67,7 +71,7 @@ const filteredState: QuoteState = {
       name: 'Kevin Bacon',
       author_id: 7,
     },
-  ]
+  ],
 }
 
 describe('quoteReducer', () => {
@@ -83,4 +87,3 @@ describe('quoteReducer', () => {
     expect(newState.filteredQuotes).toEqual(filteredState.filteredQuotes)
   })
 })
-

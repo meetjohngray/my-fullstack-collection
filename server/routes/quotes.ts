@@ -1,5 +1,10 @@
 import { Router } from 'express'
-import { getQuotes, getSingleQuote, getQuotesByAuthor, addQuote } from '../db/quotes'
+import {
+  getQuotes,
+  getSingleQuote,
+  getQuotesByAuthor,
+  addQuote,
+} from '../db/quotes'
 import { JoinedQuote, QuoteFormData } from '../../models/Iquotes'
 
 const router = Router()
@@ -43,7 +48,6 @@ router.post('/addQuote', (req, res) => {
   const quote: QuoteFormData = req.body
   return addQuote(quote)
     .then((quote: JoinedQuote) => {
-      console.log('routes', quote)
       res.json(quote)
     })
     .catch((err: unknown) => {
@@ -51,7 +55,5 @@ router.post('/addQuote', (req, res) => {
       res.status(500).json({ message: 'Something went wrong' })
     })
 })
-
-
 
 export default router

@@ -9,20 +9,20 @@ export const FILTER_QUOTES = 'FILTER_QUOTES'
 export function setQuotes(quotes: JoinedQuote[]): QuoteAction {
   return {
     type: SET_QUOTES,
-    payload: quotes
+    payload: quotes,
   }
 }
 
 export function filterQuotes(authorId: number): QuoteAction {
   return {
     type: FILTER_QUOTES,
-    payload: authorId
+    payload: authorId,
   }
 }
 export function fetchQuotes(): ThunkAction {
   return (dispatch) => {
     return apiFetchQuotes()
-      .then(quotes => {
+      .then((quotes) => {
         dispatch(setQuotes(quotes))
       })
       .catch((err: unknown) => {
@@ -34,8 +34,12 @@ export function fetchQuotes(): ThunkAction {
 export function addQuote(quote: QuoteFormData): ThunkAction {
   return (dispatch) => {
     return apiAddQuote(quote)
-      .then(quote => {
+      .then((quote) => {
         dispatch(fetchQuotes())
+        return quote
+      })
+      .then((quote) => {
+        dispatch(filterQuotes(quote.author_id))
       })
       .catch((err: unknown) => {
         console.error(err)
@@ -43,7 +47,7 @@ export function addQuote(quote: QuoteFormData): ThunkAction {
   }
 }
 
-export type QuoteAction = 
-  | { type: typeof SET_QUOTES, payload: JoinedQuote[]}
-  | { type: typeof FILTER_QUOTES, payload: number | string}
-  // | { type: typeof ADD_QUOTE, payload: QuoteFormData}
+export type QuoteAction =
+  | { type: typeof SET_QUOTES; payload: JoinedQuote[] }
+  | { type: typeof FILTER_QUOTES; payload: number | string }
+// | { type: typeof ADD_QUOTE, payload: QuoteFormData}

@@ -1,8 +1,8 @@
 import { useState, FormEvent, ChangeEvent } from 'react'
 import { useAppDispatch } from '../hooks'
+import { useNavigate } from 'react-router-dom'
 import { addQuote } from '../actions/quoteActions'
 import { QuoteFormData } from '../../models/Iquotes'
-
 
 
 function AddQuote() {
@@ -10,18 +10,20 @@ function AddQuote() {
   const initialState: QuoteFormData = { text: '', author: '' }
   const [formData, setFormData] = useState(initialState)
   const { text, author } = formData
+  const navigate = useNavigate()
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.currentTarget
-    setFormData((previous) => ({...previous,
-      [name]: value
-    }))
+    setFormData((previous) => ({ ...previous, [name]: value }))
   }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(addQuote(formData))
     setFormData(initialState)
+    navigate('/author/:authId')
   }
 
   return (

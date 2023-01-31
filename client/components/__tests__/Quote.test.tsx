@@ -6,14 +6,18 @@ import Quote from '../Quote'
 
 describe('<Quote />', () => {
   it('renders a quote', () => {
-    const quoteData = {id: 2, text: 'Do or Do Not', name: 'yoda', author_id: 7}
+    const quoteData = {
+      id: 2,
+      text: 'Do or Do Not',
+      name: 'yoda',
+      author_id: 7,
+    }
     render(
       <Router>
         <Quote quote={quoteData} />
-      </Router>       
+      </Router>
     )
-    const text = screen.getByText( /do or do not/i )
-    expect(text).toHaveTextContent( /do or do not/i )
+    const text = screen.getByText(/do or do not/i)
+    expect(text).toHaveTextContent(/do or do not/i)
   })
 })
-

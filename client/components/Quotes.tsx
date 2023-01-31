@@ -12,13 +12,14 @@ function Quotes() {
 
   useEffect(() => {
     setCurrent(0)
-    dispatch(filterQuotes(Number(authId))) 
+    dispatch(filterQuotes(Number(authId)))
   }, [dispatch, authId])
 
-  const quotes = useAppSelector(reduxState => reduxState.quoteData.quotes)
-  const filteredQuotes = useAppSelector(reduxState => reduxState.quoteData.filteredQuotes)
+  const quotes = useAppSelector((reduxState) => reduxState.quoteData.quotes)
+  const filteredQuotes = useAppSelector(
+    (reduxState) => reduxState.quoteData.filteredQuotes
+  )
   const mappedQuotes = filteredQuotes.length > 0 ? filteredQuotes : quotes
-
 
   const nextQuote = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
@@ -31,27 +32,22 @@ function Quotes() {
   }
 
   return (
-  <section className="main">
-    { mappedQuotes.map((item, index) => (
-      current === index && (
-        <Quote key = {item.id} quote = {item} />
-      )
-    ))}
-    { mappedQuotes.length > 1 && (
-    <div className='quoteNav'>
-      <button onClick = {previousQuote}>
-        ⬅
-      </button>
-      <button onClick={nextQuote}>
-        ⮕
-      </button>
-    </div>
-    )}
-    <ul>
-      <li>{ <Link to = '/'>Home</Link>}</li>    
-      <li>{ <Link to = '/form'>Add A Quote</Link>}</li>
-    </ul>
-  </section>
+    <section className="main">
+      {mappedQuotes.map(
+        (item, index) =>
+          current === index && <Quote key={item.id} quote={item} />
+      )}
+      {mappedQuotes.length > 1 && (
+        <div className="quoteNav">
+          <button onClick={previousQuote}>⬅</button>
+          <button onClick={nextQuote}>⮕</button>
+        </div>
+      )}
+      <ul>
+        <li>{<Link to="/">Home</Link>}</li>
+        <li>{<Link to="/form">Add A Quote</Link>}</li>
+      </ul>
+    </section>
   )
 }
 

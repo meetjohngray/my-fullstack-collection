@@ -3,5 +3,5 @@ import { combineReducers } from 'redux'
 import quotes from './quotes'
 
 export default combineReducers({
-  quoteData: quotes
+  quoteData: quotes,
 })

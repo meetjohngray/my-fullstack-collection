@@ -33,7 +33,9 @@ function getQuotesByAuthor(authId: number, db = connection) {
 }
 
 function getAuthor(id: number, db = connection) {
-  return db('authors').where('id', id).first()
+  return db('authors')
+    .where('id', id)
+    .first()
 }
 
 function addQuote(quote: QuoteFormData, db = connection) {
@@ -47,7 +49,7 @@ function addQuote(quote: QuoteFormData, db = connection) {
         return db('authors')
           .insert({ name: quote.author })
           .then(([id]) => {
-            getAuthor(id)
+            return getAuthor(id)
           })
       }
     })

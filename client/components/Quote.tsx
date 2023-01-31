@@ -5,8 +5,7 @@ interface QuoteProps {
   quote: JoinedQuote
 }
 
-function Quote( {quote}: QuoteProps) {
-  
+function Quote({ quote }: QuoteProps) {
   return (
     <blockquote>
       <p>{quote.text}</p>
@@ -14,6 +13,5 @@ function Quote( {quote}: QuoteProps) {
     </blockquote>
   )
 }
-
 
 export default Quote
