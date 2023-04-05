@@ -1,6 +1,6 @@
 import request from 'supertest'
 import server from '../../server'
-import { getQuotes, getSingleQuote, getQuotesByAuthor } from '../../db/quotes'
+import { getQuotes, getSingleQuote, getQuotesByAuthor, addQuote } from '../../db/quotes'
 import { Knex } from 'knex'
 
 jest.mock('../../db/quotes')
@@ -13,6 +13,7 @@ const mockGetSingleQuotes = getSingleQuote as jest.MockedFunction<
 const mockGetQuotesByAuthor = getQuotesByAuthor as jest.MockedFunction<
   typeof getQuotesByAuthor
 >
+const mockaddQuote = addQuote as jest.MockedFunction<typeof addQuote>
 
 //! What's this all about?
 jest.spyOn(console, 'error').mockImplementation(() => {})
@@ -121,4 +122,26 @@ describe('get /api/v1/quotes/author:authId', () => {
         expect(res.body.message).toContain('Something')
       })
   })
+})
+
+describe('post /api/v1/quotes/addQuote', () => {
+  it('returns a new quote', () => {
+    const newQuote = {
+      text: 'This is the way',
+      author: 'The Madalorian'
+    }
+    mockaddQuote.mockReturnValue( Promise.resolve({
+      id: 19,
+      text: 'This is the way',
+      name: 'The Madalorian',
+      author_id: 7,
+    }) as Knex.QueryBuilder)
+
+    return request(server)
+      .post('/api/v1/quotes/addQuote')
+      .send(newQuote)
+      .then((res) => {
+        expect(res.status).toBe(200)
+      })
+    })
 })

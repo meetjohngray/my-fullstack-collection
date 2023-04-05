@@ -51,6 +51,7 @@ describe('<Quotes />', () => {
 
     const elements = await screen.findByText(/he said/i)
     expect(elements).toBeVisible()
+    expect(elements).toHaveTextContent(/she said/i)
   })
 
   it.todo('renders the mocked data with a filter')
