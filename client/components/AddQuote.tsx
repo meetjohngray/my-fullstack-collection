@@ -27,10 +27,9 @@ function AddQuote() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} aria-label="Add a quote">
       <label htmlFor="quote">Quote</label>
       <textarea
-        // type="text"
         id="quote"
         name="text"
         value={text}
