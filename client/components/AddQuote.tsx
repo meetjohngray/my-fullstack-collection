@@ -1,8 +1,8 @@
 import { useState, FormEvent, ChangeEvent } from 'react'
 import { useAppDispatch } from '../hooks'
 import { useNavigate } from 'react-router-dom'
-import { addQuote } from '../actions/quoteActions'
-import { QuoteFormData } from '../../models/Iquotes'
+import { addQuote, fetchSingleQuote } from '../actions/quoteActions'
+import { QuoteFormData, JoinedQuote } from '../../models/Iquotes'
 
 
 function AddQuote() {
@@ -19,13 +19,27 @@ function AddQuote() {
     setFormData((previous) => ({ ...previous, [name]: value }))
   }
 
+  // const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault()
+  //   dispatch(addQuote(formData))
+  //     .then(data => console.log('form', data))
+  //     .catch(err => console.log('form', err))
+  //   setFormData(initialState)
+  //   // navigate('/')
+  // }
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(addQuote(formData))
-    setFormData(initialState)
-    navigate('/author/:authId')
+      .then(data => {
+        console.log('form', data)
+        // dispatch(fetchSingleQuote(data.id))
+        setFormData(initialState)
+        navigate(`/quotes/${data.id}`) // Assuming the new quote page URL follows this format
+      })
+      .catch(err => console.log('form', err))
   }
-
+  
   return (
     <form onSubmit={handleSubmit} aria-label="Add a quote">
       <label htmlFor="quote">Quote</label>

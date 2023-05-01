@@ -17,7 +17,9 @@ function apiAddQuote(quote: QuoteFormData) {
   return request
     .post('/api/v1/quotes/addQuote')
     .send(quote)
-    .then((res) => res.body)
+    .then((res) => {
+      return res.body
+    })
 }
 
 export { apiFetchQuotes, fetchSingleQuote, fetchQuotesByAuthor, apiAddQuote }

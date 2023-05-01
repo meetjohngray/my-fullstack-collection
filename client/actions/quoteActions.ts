@@ -4,6 +4,7 @@ import type { ThunkAction } from '../store'
 
 export const SET_QUOTES = 'SET_QUOTES'
 export const FILTER_QUOTES = 'FILTER_QUOTES'
+export const SINGLE_QUOTE = 'SINGLE_QUOTE'
 export const ADD_QUOTE = 'ADD_QUOTE'
 
 export function setQuotes(quotes: JoinedQuote[]): QuoteAction {
@@ -19,6 +20,14 @@ export function filterQuotes(authorId: number): QuoteAction {
     payload: authorId,
   }
 }
+
+export function fetchSingleQuote(id: number): QuoteAction { 
+  return {
+    type: SINGLE_QUOTE,
+    payload: id,
+  }
+}
+
 export function fetchQuotes(): ThunkAction {
   return (dispatch) => {
     return apiFetchQuotes()
@@ -39,7 +48,9 @@ export function addQuote(quote: QuoteFormData): ThunkAction {
         return quote
       })
       .then((quote) => {
-        dispatch(filterQuotes(quote.author_id))
+        console.log('action id', quote.id)
+        dispatch(fetchSingleQuote(quote.id))
+        return quote
       })
       .catch((err: unknown) => {
         console.error(err)
@@ -51,3 +62,4 @@ export type QuoteAction =
   | { type: typeof SET_QUOTES; payload: JoinedQuote[] }
   | { type: typeof FILTER_QUOTES; payload: number | string }
   | { type: typeof ADD_QUOTE, payload: QuoteFormData}
+  | { type: typeof SINGLE_QUOTE, payload: number | string}

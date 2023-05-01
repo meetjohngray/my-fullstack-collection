@@ -1,4 +1,4 @@
-import { SET_QUOTES, FILTER_QUOTES, QuoteAction } from '../actions/quoteActions'
+import { SET_QUOTES, FILTER_QUOTES, SINGLE_QUOTE, QuoteAction } from '../actions/quoteActions'
 import { JoinedQuote } from '../../models/Iquotes'
 
 export interface QuoteState {
@@ -16,15 +16,20 @@ const reducer = (state = initialState, action: QuoteAction) => {
   switch (type) {
     case SET_QUOTES:
       return { ...state, quotes: payload }
+    
     case FILTER_QUOTES:
       return {
         ...state,
-        filteredQuotes: state.quotes.filter((quote) =>
-          quote.author_id === payload
-            ? { ...state.filteredQuotes, payload }
-            : null
-        ),
+        filteredQuotes: state.quotes.filter((quote) => quote.author_id === payload)
       }
+    
+    case SINGLE_QUOTE:
+      console.log('reducer', payload)
+      return { 
+        ...state,
+        filteredQuotes: state.quotes.filter((quote) => quote.id === payload)
+      }
+    
     default:
       return state
   }

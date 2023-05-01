@@ -22,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Quotes />} />
         <Route path="/author/:authId" element={<Quotes />} />
+        <Route path="/quotes/:quoteId" element={<Quotes />} />
         <Route path="/form" element={<AddQuote />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>

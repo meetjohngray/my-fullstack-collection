@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from '../hooks'
 
 import { filterQuotes } from '../actions/quoteActions'
 import Quote from './Quote'
+import { JoinedQuote } from '../../models/Iquotes'
 
 function Quotes() {
   const [current, setCurrent] = useState(0)
@@ -19,7 +20,7 @@ function Quotes() {
   const filteredQuotes = useAppSelector(
     (reduxState) => reduxState.quoteData.filteredQuotes
   )
-  const mappedQuotes = filteredQuotes.length > 0 ? filteredQuotes : quotes
+  const mappedQuotes: JoinedQuote[] = filteredQuotes.length > 0 ? filteredQuotes : quotes
 
   const nextQuote = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
