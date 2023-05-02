@@ -21,10 +21,10 @@ export function filterQuotes(authorId: number): QuoteAction {
   }
 }
 
-export function fetchSingleQuote(id: number): QuoteAction { 
+export function fetchSingleQuote(quote: JoinedQuote): QuoteAction { 
   return {
     type: SINGLE_QUOTE,
-    payload: id,
+    payload: quote
   }
 }
 
@@ -43,13 +43,13 @@ export function fetchQuotes(): ThunkAction {
 export function addQuote(quote: QuoteFormData): ThunkAction {
   return (dispatch) => {
     return apiAddQuote(quote)
+      // .then((quote) => {
+      //   dispatch(fetchQuotes())
+      //   return quote
+      // })
       .then((quote) => {
-        dispatch(fetchQuotes())
-        return quote
-      })
-      .then((quote) => {
-        console.log('action id', quote.id)
-        dispatch(fetchSingleQuote(quote.id))
+        console.log('action id', quote)
+        dispatch(fetchSingleQuote(quote))
         return quote
       })
       .catch((err: unknown) => {
@@ -62,4 +62,4 @@ export type QuoteAction =
   | { type: typeof SET_QUOTES; payload: JoinedQuote[] }
   | { type: typeof FILTER_QUOTES; payload: number | string }
   | { type: typeof ADD_QUOTE, payload: QuoteFormData}
-  | { type: typeof SINGLE_QUOTE, payload: number | string}
+  | { type: typeof SINGLE_QUOTE, payload: JoinedQuote}

@@ -5,7 +5,7 @@ function apiFetchQuotes() {
   return request.get('/api/v1/quotes').then((res) => res.body)
 }
 
-function fetchSingleQuote(id: number) {
+function apifetchSingleQuote(id: number) {
   return request.get(`/api/v1/quotes/${id}`).then((res) => res.body)
 }
 
@@ -22,4 +22,4 @@ function apiAddQuote(quote: QuoteFormData) {
     })
 }
 
-export { apiFetchQuotes, fetchSingleQuote, fetchQuotesByAuthor, apiAddQuote }
+export { apiFetchQuotes, apifetchSingleQuote, fetchQuotesByAuthor, apiAddQuote }

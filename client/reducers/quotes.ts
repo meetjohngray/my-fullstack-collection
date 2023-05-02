@@ -23,12 +23,13 @@ const reducer = (state = initialState, action: QuoteAction) => {
         filteredQuotes: state.quotes.filter((quote) => quote.author_id === payload)
       }
     
-    case SINGLE_QUOTE:
-      console.log('reducer', payload)
-      return { 
-        ...state,
-        filteredQuotes: state.quotes.filter((quote) => quote.id === payload)
-      }
+      case SINGLE_QUOTE:
+        console.log('reducer', payload);
+        return {
+          ...state,
+          quotes: [...state.quotes, payload],
+          filteredQuotes: [...state.quotes, payload].filter((quote) => quote.id === payload.id)
+        };      
     
     default:
       return state
