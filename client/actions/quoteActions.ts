@@ -43,12 +43,7 @@ export function fetchQuotes(): ThunkAction {
 export function addQuote(quote: QuoteFormData): ThunkAction {
   return (dispatch) => {
     return apiAddQuote(quote)
-      // .then((quote) => {
-      //   dispatch(fetchQuotes())
-      //   return quote
-      // })
       .then((quote) => {
-        console.log('action id', quote)
         dispatch(fetchSingleQuote(quote))
         return quote
       })

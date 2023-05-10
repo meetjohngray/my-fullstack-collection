@@ -1,20 +1,34 @@
 import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 import { useAppSelector, useAppDispatch } from '../hooks'
 
-import { filterQuotes } from '../actions/quoteActions'
+import { filterQuotes, fetchQuotes } from '../actions/quoteActions'
 import Quote from './Quote'
 import { JoinedQuote } from '../../models/Iquotes'
 
 function Quotes() {
   const [current, setCurrent] = useState(0)
+  const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch()
-  const { authId } = useParams()
-
+  const { authId, quoteId } = useParams()
+  // const location = useLocation()
+  // console.log(location)
+  
+  // useEffect(() => {
+  //   setCurrent(0)
+  //   if (authId) dispatch(filterQuotes(Number(authId)))
+  // }, [dispatch, authId, quoteId])
   useEffect(() => {
-    setCurrent(0)
-    dispatch(filterQuotes(Number(authId)))
-  }, [dispatch, authId])
+    setCurrent(0);
+    setLoading(true);
+    if (authId) {
+      dispatch(filterQuotes(Number(authId)))
+        .then(() => setLoading(false))
+        .catch(() => setLoading(false));
+    } else {
+      setLoading(false);
+    }
+  }, [dispatch, authId, quoteId])
 
   const quotes = useAppSelector((reduxState) => reduxState.quoteData.quotes)
   const filteredQuotes = useAppSelector(
@@ -33,11 +47,31 @@ function Quotes() {
   }
 
   return (
-    <section className="main">
-      {mappedQuotes.map(
-        (item, index) =>
-          current === index && <Quote key={item.id} quote={item} />
-      )}
+  //   <section className="main">
+  //     {mappedQuotes.map(
+  //       (item, index) =>
+  //         current === index && <Quote key={item.id} quote={item} />
+  //     )}
+  //     {mappedQuotes.length > 1 && (
+  //       <div className="quoteNav">
+  //         <button onClick={previousQuote}>⬅</button>
+  //         <button onClick={nextQuote}>⮕</button>
+  //       </div>
+  //     )}
+  //     <ul>
+  //       <li>{<Link to="/">Home</Link>}</li>
+  //       <li>{<Link to="/form">Add A Quote</Link>}</li>
+  //     </ul>
+  //   </section>
+  // )
+  <section className="main">
+      {loading && <p>Loading...</p>}
+      {!loading && mappedQuotes.length === 0 && <p>No quotes found.</p>}
+      {!loading &&
+        mappedQuotes.map(
+          (item, index) =>
+            current === index && <Quote key={item.id} quote={item} />
+        )}
       {mappedQuotes.length > 1 && (
         <div className="quoteNav">
           <button onClick={previousQuote}>⬅</button>
