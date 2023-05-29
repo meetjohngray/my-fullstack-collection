@@ -19,14 +19,7 @@ function AddQuote() {
     setFormData((previous) => ({ ...previous, [name]: value }))
   }
 
-  // const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault()
-  //   dispatch(addQuote(formData))
-  //     .then(data => console.log('form', data))
-  //     .catch(err => console.log('form', err))
-  //   setFormData(initialState)
-  //   // navigate('/')
-  // }
+
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

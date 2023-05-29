@@ -11,29 +11,21 @@ function Quotes() {
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch()
   const { authId, quoteId } = useParams()
-  // const location = useLocation()
-  // console.log(location)
   
-  // useEffect(() => {
-  //   setCurrent(0)
-  //   if (authId) dispatch(filterQuotes(Number(authId)))
-  // }, [dispatch, authId, quoteId])
+  
   useEffect(() => {
-    setCurrent(0);
-    setLoading(true);
+    setCurrent(0)
     if (authId) {
       dispatch(filterQuotes(Number(authId)))
-        .then(() => setLoading(false))
-        .catch(() => setLoading(false));
-    } else {
-      setLoading(false);
     }
   }, [dispatch, authId, quoteId])
+  
 
   const quotes = useAppSelector((reduxState) => reduxState.quoteData.quotes)
   const filteredQuotes = useAppSelector(
     (reduxState) => reduxState.quoteData.filteredQuotes
   )
+  
   const mappedQuotes: JoinedQuote[] = filteredQuotes.length > 0 ? filteredQuotes : quotes
 
   const nextQuote = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -47,23 +39,7 @@ function Quotes() {
   }
 
   return (
-  //   <section className="main">
-  //     {mappedQuotes.map(
-  //       (item, index) =>
-  //         current === index && <Quote key={item.id} quote={item} />
-  //     )}
-  //     {mappedQuotes.length > 1 && (
-  //       <div className="quoteNav">
-  //         <button onClick={previousQuote}>⬅</button>
-  //         <button onClick={nextQuote}>⮕</button>
-  //       </div>
-  //     )}
-  //     <ul>
-  //       <li>{<Link to="/">Home</Link>}</li>
-  //       <li>{<Link to="/form">Add A Quote</Link>}</li>
-  //     </ul>
-  //   </section>
-  // )
+
   <section className="main">
       {loading && <p>Loading...</p>}
       {!loading && mappedQuotes.length === 0 && <p>No quotes found.</p>}
