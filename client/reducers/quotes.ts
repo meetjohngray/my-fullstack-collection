@@ -15,7 +15,7 @@ const reducer = (state = initialState, action: QuoteAction) => {
   const { type, payload } = action
   switch (type) {
     case SET_QUOTES:
-      return { ...state, quotes: payload }
+      return { quotes: payload, filteredQuotes: [] }
     
     case FILTER_QUOTES:
       return {

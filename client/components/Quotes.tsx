@@ -15,8 +15,14 @@ function Quotes() {
   
   useEffect(() => {
     setCurrent(0)
-    if (authId) {
+    if (authId != undefined || '') {
+      console.log('yes', authId, quoteId)
       dispatch(filterQuotes(Number(authId)))
+    } else if (quoteId){
+      console.log('no', authId, quoteId)
+      return
+    } else {
+      dispatch(fetchQuotes())
     }
   }, [dispatch, authId, quoteId])
   
