@@ -1,7 +1,7 @@
 import nock from 'nock'
 import {
   apiFetchQuotes,
-  fetchSingleQuote,
+  apifetchSingleQuote,
   fetchQuotesByAuthor,
 } from '../apiQuotes'
 import { JoinedQuote } from '../../../models/Iquotes'
@@ -47,7 +47,7 @@ describe('fetch single quote', () => {
     .reply(200, fakeQuotes[1])
 
   it('returns a single quote', () => {
-    return fetchSingleQuote(5).then((quote) => {
+    return apifetchSingleQuote(5).then((quote) => {
       expect(quote.name).toContain('White Snake')
       expect(scope.isDone()).toBe(true)
     })
