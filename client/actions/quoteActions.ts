@@ -40,10 +40,10 @@ export function fetchQuotes(): ThunkAction {
   }
 }
 
-export function addQuote(quote: QuoteFormData): ThunkAction {
+export function addQuote(quoteData: QuoteFormData): ThunkAction {
   return (dispatch) => {
-    return apiAddQuote(quote)
-      .then((quote) => {
+    return apiAddQuote(quoteData)
+      .then((quote: JoinedQuote) => {
         dispatch(fetchSingleQuote(quote))
         return quote
       })

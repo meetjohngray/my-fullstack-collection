@@ -24,7 +24,7 @@ function AddQuote() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(addQuote(formData))
-      .then(data => {
+      .then((data: JoinedQuote) => {
         console.log('form', data)
         // dispatch(fetchSingleQuote(data.id))
         setFormData(initialState)
