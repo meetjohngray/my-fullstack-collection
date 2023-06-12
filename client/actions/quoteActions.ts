@@ -40,15 +40,12 @@ export function fetchQuotes(): ThunkAction {
   }
 }
 
-export function addQuote(quoteData: QuoteFormData): ThunkAction {
+export function addQuote(quoteData: QuoteFormData): ThunkAction<JoinedQuote> {
   return (dispatch) => {
     return apiAddQuote(quoteData)
       .then((quote: JoinedQuote) => {
         dispatch(fetchSingleQuote(quote))
         return quote
-      })
-      .catch((err: unknown) => {
-        console.error(err)
       })
   }
 }
@@ -56,5 +53,5 @@ export function addQuote(quoteData: QuoteFormData): ThunkAction {
 export type QuoteAction =
   | { type: typeof SET_QUOTES; payload: JoinedQuote[] }
   | { type: typeof FILTER_QUOTES; payload: number | string }
-  | { type: typeof ADD_QUOTE, payload: QuoteFormData}
+  | { type: typeof ADD_QUOTE, payload: JoinedQuote}
   | { type: typeof SINGLE_QUOTE, payload: JoinedQuote}

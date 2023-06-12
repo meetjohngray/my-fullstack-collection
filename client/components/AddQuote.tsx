@@ -19,16 +19,12 @@ function AddQuote() {
     setFormData((previous) => ({ ...previous, [name]: value }))
   }
 
-
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(addQuote(formData))
       .then((data: JoinedQuote) => {
-        console.log('form', data)
-        // dispatch(fetchSingleQuote(data.id))
         setFormData(initialState)
-        navigate(`/quotes/${data.id}`) // Assuming the new quote page URL follows this format
+        navigate(`/quotes/${data.id}`)
       })
       .catch(err => console.log('form', err))
   }

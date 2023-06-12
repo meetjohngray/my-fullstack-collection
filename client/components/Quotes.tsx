@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useParams, useLocation } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useAppSelector, useAppDispatch } from '../hooks'
 
 import { filterQuotes, fetchQuotes } from '../actions/quoteActions'
